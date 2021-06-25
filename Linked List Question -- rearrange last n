@@ -1,0 +1,18 @@
+Linked List Question -- rearrange last n
+
+def rearrangeLastN(l, n):
+    if l is None or n <= 0:
+        return l
+    llen, curr, tail = 0, l, None
+    while curr is not None:
+        tail = curr
+        curr, llen = curr.next, llen + 1
+    if n >= llen:
+        return l
+    acc, mark, curr = 0, llen - n - 1, l
+    while acc < mark:
+        curr, acc = curr.next, acc + 1
+    tail.next  = l
+    new_head = curr.next
+    curr.next = None
+    return new_head

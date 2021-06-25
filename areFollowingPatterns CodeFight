@@ -1,0 +1,43 @@
+areFollowingPatterns CodeFight
+
+
+function areFollowingPatterns(strings, patterns) {
+    if (strings.length !== patterns.length){
+        return false;
+    }
+    let stringsObj = {};
+    let patternsObj = {};
+    for (let i = 0; i < strings.length; i++){
+        if (!stringsObj[strings[i]] && !patternsObj[patterns[i]]){
+            stringsObj[strings[i]] = patterns[i];
+            patternsObj[patterns[i]] = strings[i]; 
+        } else {
+            if (stringsObj[strings[i]] === patterns[i] && patternsObj[patterns[i]] === strings[i]){
+                console.log('match')
+            } else {
+                return false;
+            }
+        }
+    }
+
+    return true;
+    
+    // if doesnt exist
+    // match up string [i] with patterns [i]
+        // else
+        // if obj string[i] === patterns[i]
+            // proceed
+        // else 
+            // return false
+}
+
+function areFollowingPatterns2(strings, patterns) {
+    for(var i = 0;i < strings.length;i++){
+        if(patterns.indexOf(patterns[i]) != strings.indexOf(strings[i])) return false
+    }
+    return true
+}
+
+
+
+

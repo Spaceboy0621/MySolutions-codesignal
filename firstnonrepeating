@@ -1,0 +1,22 @@
+firstnonrepeating
+
+function firstNotRepeatingCharacter(s) {
+  let wordObj = {};
+  let strArr = s.split("");
+  for (char of strArr) {
+    if (wordObj[char] !== undefined) {
+      wordObj[char] += 1;
+    } else {
+      wordObj[char] = 1;
+    }
+  }
+  for (key of Object.keys(wordObj)) {
+    console.log(wordObj[key], " ", key);
+    if (wordObj[key] === 1) {
+      return key;
+    }
+  }
+
+  console.log(wordObj);
+  return "_";
+}

@@ -1,0 +1,9 @@
+centuryFromYear
+
+function centuryFromYear(num) {
+
+    let modulo = (num % 100 === 0) ? 0 : 1;
+    let centuries = Math.floor(num / 100);
+
+    return modulo + centuries;
+}
